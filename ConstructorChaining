@@ -1,0 +1,24 @@
+class car{
+    String type;
+    int number;
+      public car(){
+          this("race");
+          System.out.println("car");
+      }
+      public car(String type){
+          this(123);
+          this.type=type;
+          System.out.println(this.type);
+      }
+       public car(int number){
+          this.number=number;
+          System.out.println(this.number);
+      }
+      
+}
+class Main {
+    
+    public static void main(String[] args) {
+              car a=new car();
+           }
+}
