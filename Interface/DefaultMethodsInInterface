@@ -1,30 +1,85 @@
 
+
+
  
 public class Test {
+	
+	abstract class Animal{
+		
+		public Animal() {
+			System.out.println("this is animal constructor");
+		}
+	}
+	
+	class Dog extends Animal{
+		public Dog() {
+			System.out.println("this is Dog constructor");
+		}
+	}
+	
+	public void test() {
+		Dog d=new Dog();
+	}
+	
 	 interface vechile{
 		  
 		   default void  stop() {
 			   System.out.println("vechile stoped");
+		   } 
+		   
+		   public void gear();
+		   public void maxspeed();
+		   
+		   static void start() {
+			   System.out.println("vechile started");
 		   }
 	  }
-
- interface traffic{
+	 
+	 
+	 
+	 interface traffic{
+		 private void helper() {
+			 System.out.println("this is helper");
+		 }
+		 
 		   default void  stop() {
 			   System.out.println("signal stoped");
 		   } 
 	  }
 	 
 	 
-	 class Bike implements vechile,traffic{  //ambiguity problem
+	 class Bike implements vechile,traffic{
 		  @Override
 		  public void stop() {
 			  traffic.super.stop();
 		  }
-}
-	 
-	 class Car implements vechile{	  
-	 }
 
+		@Override
+		public void gear() {
+			System.out.println("4");
+			
+		}
+
+		@Override
+		public void maxspeed() {
+			System.out.println("150");
+			
+		}
+	 }
+	 
+	 
+	 class Car implements vechile{
+		 @Override
+		 public void gear() {
+			 System.out.println("5");
+		 }
+		 @Override
+		 public void maxspeed() {
+			 System.out.println("180");
+		 }
+		  
+	 }
+	 
 	 public void handlingMultipleIngheritanceDefaultMethods() {
 		 Bike b=new Bike();
 		 b.stop();
@@ -42,6 +97,8 @@ public class Test {
 	 public static void main(String[] args) {
 		Test t=new Test();
 		t.m1();
-        t. handlingMultipleIngheritanceDefaultMethods();
+		t.handlingMultipleIngheritanceDefaultMethods();
+		vechile.start();
+		t.test();
 	}
 }
