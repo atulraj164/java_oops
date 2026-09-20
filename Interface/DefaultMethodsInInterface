@@ -2,21 +2,36 @@
  
 public class Test {
 	 interface vechile{
-		   default void  start() {
-			   System.out.println("vechile started");
-		   }
+		  
 		   default void  stop() {
 			   System.out.println("vechile stoped");
 		   }
 	  }
+
+ interface traffic{
+		   default void  stop() {
+			   System.out.println("signal stoped");
+		   } 
+	  }
 	 
-	 class Car implements vechile{
-		  
+	 
+	 class Bike implements vechile,traffic{
+		  @Override
+		  public void stop() {
+			  traffic.super.stop();
+		  }
+}
+	 
+	 class Car implements vechile{	  
 	 }
+
+	 public void handlingMultipleIngheritanceDefaultMethods() {
+		 Bike b=new Bike();
+		 b.stop();
+	}
 	 
 	 public void m1() {
 	 Car c=new Car();
-	 c.start();
 	 c.stop();
 		
 	}
@@ -27,5 +42,6 @@ public class Test {
 	 public static void main(String[] args) {
 		Test t=new Test();
 		t.m1();
+        t. handlingMultipleIngheritanceDefaultMethods();
 	}
 }
