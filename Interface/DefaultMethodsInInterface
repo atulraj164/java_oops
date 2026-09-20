@@ -1,0 +1,31 @@
+
+ 
+public class Test {
+	 interface vechile{
+		   default void  start() {
+			   System.out.println("vechile started");
+		   }
+		   default void  stop() {
+			   System.out.println("vechile stoped");
+		   }
+	  }
+	 
+	 class Car implements vechile{
+		  
+	 }
+	 
+	 public void m1() {
+	 Car c=new Car();
+	 c.start();
+	 c.stop();
+		
+	}
+	 
+	 
+	 
+	 
+	 public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();
+	}
+}
