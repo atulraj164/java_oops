@@ -15,7 +15,7 @@ public class Test {
 	  }
 	 
 	 
-	 class Bike implements vechile,traffic{
+	 class Bike implements vechile,traffic{  //ambiguity problem
 		  @Override
 		  public void stop() {
 			  traffic.super.stop();
